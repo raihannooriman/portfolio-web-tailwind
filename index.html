@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="dist/output.css" rel="stylesheet">
+    <link href="dist/css/final.css" rel="stylesheet">
     <title>Raihan's Website Portfolio</title>
     <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
   <body>
     <!-- Header start -->
@@ -21,22 +28,36 @@
               <span class="hamburger-line transition duration-300 ease-in-out"></span>
               <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
             </button>
-            <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
+            <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent">
               <ul class="block lg:flex">
                 <li class="group">
-                  <a href="#home" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Home</a>
+                  <a href="#home" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Home</a>
                 </li>
                 <li class="group">
-                  <a href="#about" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">About Me</a>
+                  <a href="#about" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">About Me</a>
                 </li>
                 <li class="group">
-                  <a href="#portfolio" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Portfolio</a>
+                  <a href="#portfolio" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Portfolio</a>
                 </li>
                 <li class="group">
-                  <a href="#blog" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Blog</a>
+                  <a href="#blog" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Blog</a>
                 </li>
                 <li class="group">
-                  <a href="#contact" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Contact</a>
+                  <a href="#contact" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Contact</a>
+                </li>
+                <li class="mt-3 lg:mt-0 flex items-center pl-8">
+                  <div class="flex">
+                    <span class="mr-2 text-sm text-slate-500">light</span>
+                    <input type="checkbox" class="hidden" id="dark-toggle">
+                    <label for="dark-toggle">
+                      <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                        <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out">
+
+                        </div>
+                      </div>
+                    </label>
+                    <span class="ml-2 text-sm text-slate-500">dark</span>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -46,19 +67,19 @@
     </header>
     <!-- Header emd -->
     <!-- Hero start-->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
-            <h1 class="text-base font-semibold text-primary md:text-xl">Hello, my name is <span class="block font-bold text-dark text-4xl mt-1 lg:text-5xl">Raihan Nooriman</span></h1>
-            <h2 class="font-medium text-secondary text-lg mb-5 lg:text-2xl">Mathematician & <span class="text-dark">Fullstack Web Developer</span></h2>
+            <h1 class="text-base font-semibold text-primary md:text-xl dark:text-primary">Hello, my name is <span class="block font-bold text-dark text-4xl mt-1 lg:text-5xl dark:text-white">Raihan Nooriman</span></h1>
+            <h2 class="font-medium text-secondary text-lg mb-5 lg:text-2xl ">Mathematician & <span class="text-dark dark:text-white">Fullstack Web Developer</span></h2>
             <p class="font-medium text-secondary mb-10 leading-relaxed">My Fortofolio Website</p>
             <a href="" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Contact me</a>
           </div>
           <div class="w-full self-end px-4 lg:w-1/2">
             <div class="relative mt-10">
-              <img src="dist/img/myfoto.png" alt="myfoto" class="max-w-full mx-auto">
-              <span class="absolute -bottom-0 -z-10 left-1/2 -translate-x-1/2">
+              <img src="dist/img/myfoto.png" alt="myfoto" class=" relative z-10 max-w-full mx-auto">
+              <span class="absolute -bottom-0 left-1/2 -translate-x-1/2">
                 <svg width="600" height="480" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <path fill="#D946EF" d="M27,-37.4C33.7,-32.3,36.8,-22.7,41.2,-12.6C45.6,-2.5,51.3,8,53.1,21.9C54.9,35.7,53,53,43.5,65.5C34,78,17,85.7,3.9,80.3C-9.2,75,-18.4,56.5,-25.9,43.3C-33.5,30.2,-39.5,22.5,-43.7,13.3C-47.9,4.1,-50.5,-6.6,-51.1,-20.3C-51.7,-34.1,-50.5,-50.9,-41.6,-55.2C-32.8,-59.6,-16.4,-51.4,-3.1,-47.1C10.2,-42.8,20.3,-42.4,27,-37.4Z" transform="translate(100 100) scale(1.1)" />
                 </svg>
@@ -70,22 +91,22 @@
     </section>
     <!-- Hero end -->
     <!-- Section Start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-10 lg:w-1/2">
             <h4 class="font-bold text-primary text-lg mb-3">ABOUT ME</h4>
-            <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Let's growth!</h2>
-            <p class="font-medium text-base text-secondary max-w-xl lg:text-xl">I am a graduate of mathematics with a focus on Algebra. Currently, I am developing skills in <span class="text-dark font-bold">Data Science</span> and <span class="text-dark font-bold">Fullstack Web Development</span>. I am very interested in IT-related jobs.</p>
+            <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white">Let's growth!</h2>
+            <p class="font-medium text-base text-secondary max-w-xl lg:text-xl">I am a graduate of mathematics with a focus on Algebra. Currently, I am developing skills in <span class="text-dark font-bold dark:text-white">Data Science</span> and <span class="text-dark font-bold dark:text-white">Fullstack Web Development</span>. I am very interested in IT-related jobs.</p>
           </div>
           <div class="w-full px-4 lg:w-1/2">
-            <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10">Let's Connect</h3>
+            <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-white">Let's Connect</h3>
             <p class="font-medium text-base text-secondary mb-6 lg:text-lg">My Social Media:</p>
             <div class="flex items-center">
-              <a href="https://www.instagram.com/raihannooriman" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"><i data-feather="instagram" width="20"></i></a>
-              <a href="https://www.linkedin.com/in/raihan-nooriman" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"><i data-feather="linkedin" width="20"></i></a>
-              <a href="mailto:noorimanr@gmail.com" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"><i data-feather="mail" width="20"></i></a>
-              <a href="https://github.com/raihannooriman" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"><i data-feather="github" width="20"></i></a>
+              <a href="https://www.instagram.com/raihannooriman" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 dark:text-white dark:hover:text-dark hover:border-primary hover:bg-primary hover:text-white"><i data-feather="instagram" width="20"></i></a>
+              <a href="https://www.linkedin.com/in/raihan-nooriman" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 dark:text-white dark:hover:text-dark hover:border-primary hover:bg-primary hover:text-white"><i data-feather="linkedin" width="20"></i></a>
+              <a href="mailto:noorimanr@gmail.com" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 dark:text-white dark:hover:text-dark hover:border-primary hover:bg-primary hover:text-white"><i data-feather="mail" width="20"></i></a>
+              <a href="https://github.com/raihannooriman" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 dark:text-white dark:hover:text-dark hover:border-primary hover:bg-primary hover:text-white"><i data-feather="github" width="20"></i></a>
             </div>
           </div>
         </div>
@@ -93,12 +114,12 @@
     </section>
     <!-- Section End -->
     <!-- portfolio begin -->
-    <section id="portfolio" class="pt-36 pb-16 bg-slate-100">
+    <section id="portfolio" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Portfolio</h4>
-            <h2 class="font-bold text-dark text-3xl mb-4">My Newest Project</h2>
+            <h2 class="font-bold text-dark text-3xl mb-4 dark:text-white">My Newest Project</h2>
             <p class="font-medium text-md text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem molestiae quasi officia voluptates blanditiis laudantium nisi dolorum quis ducimus accusantium.</p>
           </div>
         </div>
@@ -107,28 +128,28 @@
             <div class="rounded-md shadow-md overflow-hidden">
               <img src="dist/img/portfolio/portfolio1.png" alt="Wedding Website" width="w-full">
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Wedding Invitation Website</h3>
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Wedding Invitation Website</h3>
             <p class="font-medium text-base text-secondary">This is a website for wedding invitation</p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
             <div class="rounded-md shadow-md overflow-hidden">
               <img src="dist/img/portfolio/portfolio1.png" alt="Wedding Website" width="w-full">
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Wedding Invitation Website</h3>
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Wedding Invitation Website</h3>
             <p class="font-medium text-base text-secondary">This is a website for wedding invitation</p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
             <div class="rounded-md shadow-md overflow-hidden">
               <img src="dist/img/portfolio/portfolio1.png" alt="Wedding Website" width="w-full">
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Wedding Invitation Website</h3>
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Wedding Invitation Website</h3>
             <p class="font-medium text-base text-secondary">This is a website for wedding invitation</p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
             <div class="rounded-md shadow-md overflow-hidden">
               <img src="dist/img/portfolio/portfolio1.png" alt="Wedding Website" width="w-full">
             </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Wedding Invitation Website</h3>
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Wedding Invitation Website</h3>
             <p class="font-medium text-base text-secondary">This is a website for wedding invitation</p>
           </div>
         </div>
@@ -136,22 +157,22 @@
     </section>
     <!-- portfolio end -->
     <!-- blog begin -->
-    <section id="blog" class="pt-36 pb-32 bg-slate-100">
+    <section id="blog" class="pt-36 pb-32 bg-slate-100 dark:bg-dark">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Blog</h4>
-            <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">My Updates</h2>
+            <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">My Updates</h2>
             <p class="font-medium text-md text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem molestiae quasi officia voluptates blanditiis laudantium nisi dolorum quis ducimus accusantium.</p>
           </div>
         </div>
         <div class="flex flex-wrap">
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
               <img src="https://source.unsplash.com/360x200?programming" alt="programming" class="w-full">
               <div class="py-8 px-6">
                 <h3>
-                  <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate">
+                  <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white">
                     Tips Learn Fullstack Web Dev
                   </a>
                 </h3>
@@ -163,11 +184,11 @@
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
               <img src="https://source.unsplash.com/360x200?mathematics" alt="mathematics" class="w-full">
               <div class="py-8 px-6">
                 <h3>
-                  <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate">
+                  <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white">
                     Tips Learn Mathematics
                   </a>
                 </h3>
@@ -179,12 +200,12 @@
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
               <img src="https://source.unsplash.com/360x200?philosophy" alt="philosophy" class="w-full">
               <div class="py-8 px-6">
                 <h3>
-                  <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate">
-                    Tips Learn Fullstack Web Dev
+                  <a href="#" class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white">
+                    Tips Learn Philosophy
                   </a>
                 </h3>
                 <p class="font-medium text-base text-secondary mb-6">
@@ -199,12 +220,12 @@
     </section>
     <!-- blog end -->
     <!-- contact begin -->
-    <section id="contact" class="pt-36 pb-32">
+    <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Contact</h4>
-            <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">Contact Me</h2>
+            <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Contact Me</h2>
             <p class="font-medium text-md text-secondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, non!</p>
           </div>
         </div>
@@ -287,6 +308,8 @@
       </div>
     </footer>
     <!-- footer end -->
+    <!-- back to top start-->
+    <a href="#home" class="hidden fixed justify-center items-center z-[9999] bottom-4 right-4 h-10 w-10 rounded-full bg-primary hover:animate-pulse" id="to-top"><span class="block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2"></span></a>
     <script>
       feather.replace();
     </script>
